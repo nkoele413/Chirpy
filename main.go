@@ -8,13 +8,13 @@ import (
 func main() {
 	const port = "8080"
 
-	mux := http.NewServerMux()
+	mux := http.NewServeMux()
 
 	srv := &http.Server{
 		Addr:    ":" + port,
-		Handler, mux,
+		Handler: mux,
 	}
 
-	log.Printf("Serving on port %s\n", port)
-	log.Fatal(srv.LinstenAndServe())
+	log.Printf("Serving on port: %s\n", port)
+	log.Fatal(srv.ListenAndServe())
 }
